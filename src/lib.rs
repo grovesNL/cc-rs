@@ -150,7 +150,8 @@ pub struct Tool {
     path: PathBuf,
     args: Vec<OsString>,
     env: Vec<(OsString, OsString)>,
-    family: ToolFamily
+    /// Tool family
+    pub family: ToolFamily
 }
 
 /// Represents the family of tools this tool belongs to.
@@ -159,7 +160,7 @@ pub struct Tool {
 ///
 /// Detection of a family is done on best-effort basis and may not accurately reflect the tool.
 #[derive(Copy, Clone, Debug, PartialEq)]
-enum ToolFamily {
+pub enum ToolFamily {
     /// Tool is GNU Compiler Collection-like.
     Gnu,
     /// Tool is Clang-like. It differs from the GCC in a sense that it accepts superset of flags
